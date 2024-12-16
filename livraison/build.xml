@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProjectCombat" default="run" basedir=".">
+
+    <description>Builds, tests, and runs the project ProjetCombat.</description>
+
+    <property name="src.dir" value="src" />
+    <property name="build.dir" value="build" />
+
+    <target name="compile" depends="clean">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="true" includeantruntime="false"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+        <mkdir dir="${build.dir}" />
+    </target>
+
+    <target name="run" depends="compile">
+    	<java classname="gridarena.main" classpath="${build.dir}" fork="true"/>
+    </target>
+
+    <target name="demo-entity">
+    	<java classname="gridarena.entity.Demo" classpath="${build.dir}" />
+    </target>
+
+    <target name="demo-explosive">
+    	<java classname="gridarena.entity.explosive.Demo" classpath="${build.dir}" />
+    </target>
+
+    <target name="demo-other">
+    	<java classname="gridarena.entity.other.Demo" classpath="${build.dir}" />
+    </target>
+
+    <target name="demo-hero">
+    	<java classname="gridarena.entity.hero.Demo" classpath="${build.dir}" />
+    </target>
+
+    <target name="demo-battlefield">
+    	<java classname="gridarena.model.Demo" classpath="${build.dir}" />
+    </target>
+
+</project>
